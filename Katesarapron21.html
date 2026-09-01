@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katesarapron's Profile</title>
+    <!-- นำเข้าฟอนต์ Kanit จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        /* พื้นหลังพาสเทลน่ารัก สบายตา */
+        body {
+            background-color: #f7bfd2;
+            background-image: radial-gradient(#f5eef1 1px, transparent 1px);
+            background-size: 20px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        /* ตัวการ์ดโปรไฟล์ */
+        .profile-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1);
+            text-align: center;
+            border: 3px solid #f8bbd0;
+        }
+
+        /* รูปโปรไฟล์แมว */
+        .avatar-wrapper {
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 4px solid #f8bbd0;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(248, 187, 208, 0.5);
+            background-color: #fff0f5;
+        }
+
+        /* ชื่อและสโลแกน */
+        .name {
+            color: #d81b60;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .tagline {
+            color: #888888;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* ส่วนแสดงข้อมูลส่วนตัว */
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box {
+            background-color: #fff0f5;
+            padding: 12px 16px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #f8bbd0;
+            text-align: left;
+        }
+
+        .info-icon {
+            font-size: 18px;
+            width: 32px;
+            height: 32px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .info-text label {
+            display: block;
+            font-size: 11px;
+            color: #ad1457;
+            font-weight: 500;
+        }
+
+        .info-text span {
+            font-size: 14px;
+            color: #444444;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        /* ปุ่มกดไปยัง GitHub */
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #f48fb1, #ce93d8);
+            color: white;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(255, 150, 185, 0.904);
+            transition: all 0.3s ease;
+        }
+
+        .github-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(244, 143, 177, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <!-- รูปโปรไฟล์เปลี่ยนเป็นรูปแมวสตรอว์เบอร์รี -->
+        <div class="avatar-wrapper">
+            <img src="https://i.ibb.co/twPbJKDV/1.jpg" alt="Cute Strawberry Cat Profile" class="avatar">
+        </div>
+
+        <!-- ชื่อและสโลแกน -->
+        <h1 class="name">Katesarapron ✨</h1>
+        <p class="tagline">Welcome to my GitHub space! 🐾</p>
+
+        <!-- รายละเอียดข้อมูล -->
+        <div class="info-container">
+            
+            <!-- รหัสนักศึกษา -->
+            <div class="info-box">
+                <div class="info-icon">🆔</div>
+                <div class="info-text">
+                    <label>STUDENT ID</label>
+                    <span>68219010021</span>
+                </div>
+            </div>
+
+            <!-- แผนกวิชา -->
+            <div class="info-box">
+                <div class="info-icon">💻</div>
+                <div class="info-text">
+                    <label>DEPARTMENT</label>
+                    <span>เทคโนโลยีสารสนเทศ</span>
+                </div>
+            </div>
+
+            <!-- อีเมล -->
+            <div class="info-box">
+                <div class="info-icon">✉️</div>
+                <div class="info-text">
+                    <label>EMAIL</label>
+                    <span>katesarapron21@gmali.com</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ปุ่มเชื่อมโยง -->
+        <a href="https://github.com" target="_blank" class="github-btn">
+            <span>🌸</span> Visit My GitHub
+        </a>
+    </div>
+
+</body>
+</html>
