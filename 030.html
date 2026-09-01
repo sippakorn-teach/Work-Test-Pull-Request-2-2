@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แสดงข้อมูลประจำตัว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .profile-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            height: 120px;
+            position: relative;
+        }
+        .avatar-container {
+            position: relative;
+            margin-top: -60px;
+            margin-bottom: 15px;
+        }
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .card-body {
+            padding: 0 25px 30px;
+        }
+        .title {
+            color: #202124;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+        .info-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+        .info-details {
+            text-align: left;
+            flex-grow: 1;
+        }
+        .label {
+            display: block;
+            color: #70757a;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        .value {
+            color: #202124;
+            font-size: 15px;
+            font-weight: 500;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="card-header"></div>
+        
+        <div class="avatar-container">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&q=80" alt="รูปโปรไฟล์" class="avatar">
+        </div>
+
+        <div class="card-body">
+            <h2 class="title">ข้อมูลประจำตัว</h2>
+            
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+                    <div class="info-details">
+                        <span class="label">ชื่อ - นามสกุล</span>
+                        <span class="value">พัฒนพล แก้วบำรุง</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-id-card"></i></div>
+                    <div class="info-details">
+                        <span class="label">รหัสประจำตัว</span>
+                        <span class="value">68219010030</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="info-details">
+                        <span class="label">แผนก</span>
+                        <span class="value">เทคโนโลยีสารสนเทศ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
