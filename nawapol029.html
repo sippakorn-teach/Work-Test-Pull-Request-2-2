@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลส่วนตัว - นวพล เหมหา</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #fe0000;
+            --secondary-color: #cf5e29;
+            --accent-color: #ff3c00;
+            --bg-color: #bb3c26;
+            --card-bg: rgba(42, 16, 15, 0.85); /* เปลี่ยนพื้นหลังการ์ดเป็นสีน้ำเงินเข้มโปร่งแสง */
+            --box-bg: rgba(30, 41, 59, 0.7);    /* พื้นหลังกล่องข้อมูลโทนเข้ม */
+            --text-main: #f8fafc;              /* สีฟอนต์หลักเป็นสีขาวสว่าง */
+            --text-muted: #94a3b8;             /* สีฟอนต์หัวข้อสว่างพอดี */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: radial-gradient(circle at 50% 10%, #695757 0%, hsl(60, 2%, 10%) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ตกแต่งแสงนีออนฟุ้งด้านหลัง */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #fe0000, #ca9728);
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        /* ตัวการ์ดเปลี่ยนเป็นกระจกโทนเข้มเรืองแสง */
+        .profile-card {
+            position: relative;
+            z-index: 1;
+            background: var(--card-bg);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 380px;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(254, 0, 0, 0.25);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(224, 10, 3, 0.4);
+            border-color: rgba(226, 17, 17, 0.4);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #e70909 0%, #eb1515 100%);
+            color: #0f172a;
+            padding: 25px 20px 45px 20px;
+            text-align: center;
+            position: relative;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .card-header h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-shadow: 0 2px 4px rgba(226, 34, 34, 0.3);
+        }
+
+        .profile-image-container {
+            width: 125px;
+            height: 125px;
+            margin: -50px auto 15px auto;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            box-shadow: 0 0 20px rgba(223, 9, 9, 0.5);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover .profile-image-container {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .profile-image-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #da120b;
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 10px 24px 30px 24px;
+        }
+
+        /* เปลี่ยนกล่องข้อมูลจากสีขาวเป็นกระจกเข้ม + ขอบนีออนอ่อนๆ */
+        .info-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            border-radius: 14px;
+            background: var(--box-bg);
+            border: 1px solid rgba(235, 32, 32, 0.05);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .info-group:hover {
+            background: rgba(185, 14, 14, 0.8);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(218, 12, 12, 0.2);
+            transform: translateX(4px);
+        }
+
+        .label {
+            font-weight: 400;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .value {
+            color: var(--text-main);
+            font-weight: 600;
+            text-align: right;
+            font-size: 0.95rem;
+        }
+
+        /* ไฮไลต์ชื่อ-นามสกุล ด้วยแสงนีออนไล่เฉด */
+        .info-group.highlight {
+            background: linear-gradient(135deg, rgba(255, 17, 0, 0.15) 0%, rgba(233, 11, 11, 0.05) 100%);
+            border: 1px solid rgba(184, 35, 35, 0.3);
+        }
+
+        .info-group.highlight .label {
+            color: #c01e1e;
+            font-weight: 500;
+        }
+
+        .info-group.highlight .value {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(252, 3, 3, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="card-header">
+            <h2>ข้อมูลนักเรียน</h2>
+        </div>
+
+        <div class="profile-image-container">
+            <div class="profile-image-inner">
+                <img src="https://i.ibb.co/W49ZL7g0/638591557057565463-story.jpg" alt="รูปโปรไฟล์">
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="info-group highlight">
+                <span class="label">ชื่อ-นามสกุล</span>
+                <span class="value">นวพล เหมหา</span>
+            </div>
+            <div class="info-group">
+                <span class="label">ชั้น</span>
+                <span class="value">ปวช. 2/2</span>
+            </div>
+            <div class="info-group">
+                <span class="label">รหัสนักศึกษา</span>
+                <span class="value">68219010029</span>
+            </div>
+            <div class="info-group">
+                <span class="label">แผนก</span>
+                <span class="value">เทคโนโลยีสารสนเทศ</span>
+            </div>
+            <div class="info-group">
+                <span class="label">วันเกิด</span>
+                <span class="value">27/11/2552</span>
+            </div>
+            <div class="info-group">
+                <span class="label">อายุ</span>
+                <span class="value">17 ปี</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
