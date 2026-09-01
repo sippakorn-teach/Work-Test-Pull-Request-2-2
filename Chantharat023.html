@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile - จันทรัศม์ ชนะกุล</title>
+    <style>
+        :root {
+            --bg-primary: #fff0f5;
+            --bg-card: #ffffff;
+            --pink-main: #ff69b4;
+            --pink-dark: #d81b60;
+            --pink-light: #ffe4e1;
+            --text-main: #4a3e43;
+            --text-muted: #8c7a82;
+            --border-color: #f8c8dc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Top Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--pink-dark);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Layout Grid */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Info Boxes */
+        .box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.15);
+            border-color: var(--pink-main);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .box-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .box-content {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--pink-dark);
+        }
+
+        .tag-container {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--pink-light);
+            color: var(--pink-dark);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* GitHub Contribution Grid */
+        .graph-title {
+            font-size: 1rem;
+            color: var(--pink-dark);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .graph-mock {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: 6px;
+        }
+
+        .graph-day {
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 4px;
+        }
+
+        .c-1 { background-color: var(--pink-light); }
+        .c-2 { background-color: #ffb6c1; }
+        .c-3 { background-color: #ff69b4; }
+        .c-4 { background-color: #d81b60; }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <svg height="28" width="28" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        <span>Student Profile README</span>
+    </div>
+
+    <div class="container">
+        <!-- กล่องชื่อ-นามสกุล -->
+        <div class="box full-width">
+            <div class="box-title">🌸 Student Name</div>
+            <div class="box-content" style="font-size: 1.6rem;">จันทรัศม์ ชนะกุล</div>
+        </div>
+
+        <!-- กล่องเลขประจำตัว -->
+        <div class="box">
+            <div class="box-title">💳 Student ID</div>
+            <div class="box-content">68219010023</div>
+        </div>
+
+        <!-- กล่องแผนกวิชา -->
+        <div class="box">
+            <div class="box-title">💻 Department</div>
+            <div class="box-content">เทคโนโลยีสารสนเทศ</div>
+        </div>
+
+        <!-- กล่องสถานศึกษา -->
+        <div class="box full-width">
+            <div class="box-title">🏫 Institute</div>
+            <div class="box-content" style="font-size: 1.3rem;">วิทยาลัยเทคนิคกระบี่</div>
+            <div class="tag-container" style="margin-top: 1rem;">
+                <span class="tag">Information Technology</span>
+                <span class="tag">Krabi Technical College</span>
+            </div>
+        </div>
+
+        <!-- กล่องกิจกรรม / Activity Graph -->
+        <!-- <div class="box full-width">
+            <div class="graph-title">🎀 Contributions Calendar</div>
+            <div class="graph-mock">
+                <div class="graph-day c-1"></div>
+                <div class="graph-day c-3"></div>
+                <div class="graph-day c-4"></div>
+                <div class="graph-day c-2"></div>
+                <div class="graph-day c-1"></div>
+                <div class="graph-day c-3"></div>
+                <div class="graph-day c-4"></div>
+                <div class="graph-day c-2"></div>
+                <div class="graph-day c-1"></div>
+                <div class="graph-day c-3"></div>
+                <div class="graph-day c-4"></div>
+                <div class="graph-day c-2"></div>
+                <div class="graph-day c-1"></div>
+                <div class="graph-day c-3"></div>
+                <div class="graph-day c-2"></div>
+                <div class="graph-day c-4"></div>
+            </div> -->
+        </div>
+    </div>
+
+</body>
+</html>
