@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำตัว - Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sukhumvit Set', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            /* Animated Gradient Background */
+            background: linear-gradient(-45deg, #0f0c20, #1a0836, #6c00d7, #240046);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Ambient background glow orbs */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: floatOrb 8s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: #8a2be2;
+            top: 10%;
+            left: 15%;
+        }
+
+        body::after {
+            background: #00ffff;
+            bottom: 10%;
+            right: 15%;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.2); }
+        }
+
+        /* Glassmorphism Card Style */
+        .profile-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            width: 100%;
+            max-width: 380px;
+            border-radius: 24px;
+            padding: 40px 24px 32px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 20px 40px rgba(108, 0, 215, 0.4);
+        }
+
+        /* Avatar Container & Effects */
+        .avatar-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-container::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00ffff, #9d4edd, #ff007f);
+            animation: spin 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1a0836;
+            background: #1a0836;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-card:hover .avatar {
+            transform: scale(1.05);
+        }
+
+        /* Badge Number */
+        .badge {
+            display: inline-block;
+            background: rgba(157, 78, 221, 0.25);
+            border: 1px solid rgba(157, 78, 221, 0.5);
+            color: #e0aaff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Typography with Gradient Texts */
+        .name {
+    font-size: 1.75rem;
+    background: linear-gradient(to right, #ffffff, #c77dff);
+    background-clip: text; /* เพิ่มบรรทัดนี้ลงไปเพื่อแก้ไขเตือน */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+        .title {
+            font-size: 0.9rem;
+            color: #00f0ff;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        .bio {
+            font-size: 0.88rem;
+            color: #c4b5fd;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            word-break: break-all;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Interactive Action Buttons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-btn {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 100%);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: linear-gradient(135deg, #00f0ff 0%, #7b2cbf 100%);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+            transform: translateY(-2px);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="avatar-container">
+            <img src="https://img2.pic.in.th/images-1e0080fcd467d3e80.jpeg" alt="Profile" class="avatar">
+        </div>
+        
+        <span class="badge"><i class="fa-solid fa-id-badge"></i> 2/2 027</span>
+        <h1 class="name">Tabis Jandee</h1>
+        <p class="title">Information Technology</p>
+        
+        <div class="bio">
+            <i class="fa-regular fa-envelope"></i> 68219010027@kbtc.ac.th
+        </div>
+
+        <div class="social-links">
+            <a href="mailto:68219010027@kbtc.ac.th" class="social-btn">
+                <i class="fa-solid fa-paper-plane"></i> Contact Me
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
